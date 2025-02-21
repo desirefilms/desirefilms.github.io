@@ -1,0 +1,379 @@
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;700&display=swap');
+
+:root {
+  --future-dusk: #3b3365;         /* Темно-фиолетовый */
+  --future-dusk-light: #54497e;   /* Светлее основного */
+  --bg-main: #2b2643;             /* Фон */
+  --white: #ffffff;
+  --text-gray: #e5e5e5;
+  --max-width: 900px;
+}
+
+/* Базовые стили */
+body {
+  background-color: var(--bg-main);
+  color: var(--text-gray);
+  font-family: 'Vollkorn', serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--future-dusk-light);
+  text-decoration: none;
+}
+
+/* Заголовки */
+h1, h2, h3 {
+  font-family: 'Vollkorn', serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Анимация fade-in */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+header {
+  background-color: var(--future-dusk);
+  padding: 20px 0;
+  text-align: center;
+  animation: fade-in 0.5s ease-in-out;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+header .logo img {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+/* Делаем заголовок Desire менее броским */
+header h1 {
+  font-size: 2em;       /* вместо 2.5em */
+  color: #ccc;          /* более приглушённый */
+  font-weight: 400;     /* убираем жирность */
+}
+
+/* Навигация */
+header nav {
+  margin-top: 10px;
+}
+
+header nav button {
+  padding: 8px 16px;
+  margin: 0 5px;
+  background-color: var(--future-dusk-light);
+  border: none;
+  border-radius: 20px;
+  color: var(--white);
+  cursor: pointer;
+  font-family: 'Vollkorn', serif;
+  transition: background 0.3s;
+}
+
+header nav button:hover {
+  background-color: #6c5a94;
+}
+
+/* Контейнер */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 20px;
+  animation: fade-in 0.5s ease-in-out;
+}
+
+/* Поиск */
+.search-page input {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid var(--future-dusk-light);
+  border-radius: 20px;
+  background-color: var(--bg-main);
+  color: var(--white);
+  outline: none;
+  font-family: 'Vollkorn', serif;
+}
+
+.search-page button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  border: 2px solid var(--future-dusk-light);
+  background-color: var(--future-dusk-light);
+  color: var(--white);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-family: 'Vollkorn', serif;
+}
+
+.search-page button:hover {
+  background-color: #6c5a94;
+}
+
+/* Сетка карточек */
+.film-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.film-card {
+  width: 150px;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s;
+  animation: fade-in 0.5s ease-in-out;
+}
+
+.film-card:hover {
+  transform: scale(1.05);
+}
+
+.film-card img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.film-card p {
+  margin-top: 5px;
+  font-size: 1em;
+  color: var(--white);
+}
+
+/* Detail page */
+.detail-page button {
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  background-color: var(--future-dusk-light);
+  border: 2px solid var(--future-dusk-light);
+  border-radius: 20px;
+  color: var(--white);
+  cursor: pointer;
+  transition: background 0.3s;
+  font-family: 'Vollkorn', serif;
+}
+
+.detail-page button:hover {
+  background-color: #6c5a94;
+}
+
+.film-detail {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  animation: fade-in 0.5s ease-in-out;
+}
+
+.poster img {
+  width: 280px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.details p {
+  margin: 5px 0;
+  line-height: 1.5;
+}
+
+/* Плеер */
+.player-section {
+  margin-top: 20px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  animation: fade-in 0.5s ease-in-out;
+}
+
+.player {
+  position: relative;
+  width: 150%;
+  max-width: 1000px;
+  margin: 0 auto 20px;
+  position: relative;
+  padding-top: 56.25%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.player iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Внешний контейнер*/
+.sources {
+  display: flex;
+  flex-direction: column; /* Сначала надпись, потом блок кнопок */
+  align-items: center;    /* Выравниваем всё по центру */
+  gap: 10px;              /* Промежуток между надписью и кнопками */
+  margin-top: 10px;      /* Отступ сверху, если нужно */
+}
+
+/* Надпись "Плеер" */
+.player-label {
+  margin: 0;
+  padding: 0;
+  font-size: 0.9em;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--white);
+  text-align: center;
+}
+
+/* Внутренний блок .sources-row: горизонтальный ряд кнопок */
+.sources-row {
+  display: flex;
+  flex-wrap: nowrap;    /* Не переносим кнопки на новую строку */
+  gap: 10px;            /* Расстояние между кнопками */
+  justify-content: center; /* Центрируем кнопки по горизонтали */
+}
+
+/* Стили кнопок */
+.sources button {
+  padding: 8px 16px;
+  background-color: var(--bg-main);
+  border: 1px solid var(--future-dusk-light);
+  border-radius: 20px;
+  color: var(--white);
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-family: 'Vollkorn', serif;
+}
+
+.sources button:hover {
+  background-color: var(--future-dusk-light);
+}
+
+.sources button.selected {
+  background-color: #d2c3f0; 
+  border-color: #d2c3f0;
+  color: var(--bg-main);
+}
+
+/* Пагинация */
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 6px 12px;
+  margin: 0 4px;
+  background-color: var(--future-dusk-light);
+  border: 1px solid var(--future-dusk-light);
+  border-radius: 10px;
+  color: var(--white);
+  cursor: pointer;
+  transition: background 0.3s;
+  font-family: 'Vollkorn', serif;
+}
+
+.pagination button:hover {
+  background-color: var(--future-dusk);
+}
+
+.pagination button.selected {
+  background-color: var(--future-dusk);
+  border-color: var(--future-dusk);
+}
+
+/* Автодополнение */
+.search-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.suggestions {
+  list-style: none;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 300px;
+  background-color: var(--future-dusk-light);
+  border: 1px solid var(--future-dusk);
+  border-radius: 10px;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 100;
+  margin: 0;
+  padding: 0;
+}
+
+.suggestions li {
+  padding: 8px 10px;
+  color: var(--white);
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: 'Vollkorn', serif;
+}
+
+.suggestions li:hover {
+  background-color: var(--future-dusk);
+}
+
+/* Форма фильтра */
+.filter-form {
+  background-color: var(--future-dusk-light);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  animation: fade-in 0.5s ease-in-out;
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.filter-row label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  color: var(--white);
+  min-width: 120px;
+}
+
+.filter-row input,
+.filter-row select {
+  margin-top: 5px;
+  padding: 8px;
+  border: 1px solid var(--bg-main);
+  border-radius: 10px;
+  background-color: var(--bg-main);
+  color: var(--white);
+  outline: none;
+}
+
+.filter-submit {
+  padding: 10px 20px;
+  border: 2px solid var(--bg-main);
+  background-color: var(--bg-main);
+  color: var(--white);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-family: 'Vollkorn', serif;
+}
+
+.filter-submit:hover {
+  background-color: var(--future-dusk);
+}
+
